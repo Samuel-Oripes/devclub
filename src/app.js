@@ -1,5 +1,7 @@
 // app.js configura a aplicação
 
+import path, { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import express from "express";
 import routes from "./routes.js";
 
@@ -14,7 +16,15 @@ class App {
 	}
 
 	middlewares() {
+
+		const __filename = fileURLToPath(import.meta.url);
+    	const __dirname = path.dirname(__filename);
+
 		this.app.use(express.json());
+		this.app.use(
+			"/product-file",
+			express.static(resolve(__dirname, "..", "uploads")),
+		);
 	}
 
 	routes() {
