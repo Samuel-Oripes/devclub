@@ -1,8 +1,10 @@
 import bcrypt from "bcrypt";
 import Sequelize, { Model } from "sequelize";
+
 class User extends Model {
 	static init(sequelize) {
-		Model.init(
+		// biome-ignore lint/complexity/noThisInStatic: <explanation>
+		super.init(
 			{
 				name: Sequelize.STRING,
 				email: Sequelize.STRING,
@@ -16,13 +18,15 @@ class User extends Model {
 			},
 		);
 
-		Model.addHook("beforeSave", async (user) => {
+		// biome-ignore lint/complexity/noThisInStatic: <explanation>
+		this.addHook("beforeSave", async (user) => {
 			if (user.password) {
 				user.password_hash = await bcrypt.hash(user.password, 10);
 			}
 		});
 
-		return Model;
+		// biome-ignore lint/complexity/noThisInStatic: <explanation>
+		return this;
 	}
 
 	async checkPassword(password) {

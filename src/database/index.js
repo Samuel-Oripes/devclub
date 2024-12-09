@@ -4,6 +4,7 @@ import User from "../app/models/User.js";
 import configDatabase from "../config/database.cjs";
 
 const models = [User, Product];
+
 class Database {
 	constructor() {
 		this.init();
