@@ -1,6 +1,7 @@
 import * as Yup from "yup";
 import Category from "../models/Category.js";
 import Product from "../models/Product.js";
+import User from "../models/User.js";
 import Order from "../schemas/Order.js";
 
 class OrderController {
@@ -40,7 +41,7 @@ class OrderController {
 		});
 
 		const formattedProducts = findProducts.map((product) => {
-            const productIndex = products.findIndex((item) => item.id === product.id);
+			const productIndex = products.findIndex((item) => item.id === product.id);
 
 			const newProduct = {
 				id: product.id,
@@ -48,7 +49,7 @@ class OrderController {
 				category: product.category.name,
 				price: product.price,
 				url: product.url,
-                quantity: products[productIndex].quantity,
+				quantity: products[productIndex].quantity,
 			};
 
 			return newProduct;
@@ -60,9 +61,47 @@ class OrderController {
 				name: req.userName,
 			},
 			products: formattedProducts,
+			status: "Pedido realizado",
 		};
 
-		return res.status(201).json({ order });
+		const createdOrder = await Order.create(order);
+
+		return res.status(201).json({ createdOrder });
+	}
+
+	async index(req, res) {
+		const orders = await Order.find();
+
+		return res.json(orders);
+	}
+
+	async update(req, res) {
+		const schema = Yup.object({
+			status: Yup.string().required(),
+		});
+
+		try {
+			schema.validateSync(req.body, { abortEarly: false });
+		} catch (err) {
+			return res.status(400).json({ error: err.errors });
+		}
+
+		const { admin: isAdmin } = await User.findByPk(req.userId)
+
+		if (!isAdmin) {
+			return res.status(401).json();
+		}
+
+		const { id } = req.params;
+		const { status } = req.body;
+
+		try {
+			await Order.updateOne({ _id: id }, { status });
+		} catch (err) {
+			return res.status(400).json({ error: err.message });
+		}
+
+		return res.json({ message: "Estado alterado com sucesso" });
 	}
 }
 
