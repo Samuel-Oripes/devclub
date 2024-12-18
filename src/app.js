@@ -2,6 +2,7 @@
 
 import path, { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import cors from "cors";
 import express from "express";
 import routes from "./routes.js";
 
@@ -11,14 +12,14 @@ class App {
 	constructor() {
 		this.app = express();
 
+		this.app.use(cors());
 		this.middlewares();
 		this.routes();
 	}
 
 	middlewares() {
-
 		const __filename = fileURLToPath(import.meta.url);
-    	const __dirname = path.dirname(__filename);
+		const __dirname = path.dirname(__filename);
 
 		this.app.use(express.json());
 		this.app.use(
