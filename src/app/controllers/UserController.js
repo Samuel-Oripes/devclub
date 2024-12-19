@@ -28,7 +28,7 @@ class UserController {
 
 		if (userExists) {
 			return res
-				.status(400)
+				.status(409)
 				.json({ error: "Esse email já está sendo utilizado" });
 		}
 
