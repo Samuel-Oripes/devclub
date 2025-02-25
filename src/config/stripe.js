@@ -1,0 +1,4 @@
+const stripeSecretKey =
+	"sk_test_51QudrDE4BI9ACGjOO7zGdAVKZIf46PuzHn4e2jm8gic2dhpsaEcM8hLwhQzXXHaeMixEkh9uicNT8QV5kTYbf1Vr00ib6sjvJb";
+
+export default stripeSecretKey;
