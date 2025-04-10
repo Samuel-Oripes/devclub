@@ -1,4 +1,4 @@
-//Define a estrutura e o comportamento dos usuários 
+//Define a estrutura e o comportamento dos usuários
 
 import bcrypt from "bcrypt"; // Importa a biblioteca bcrypt para hash de senhas
 import Sequelize, { Model } from "sequelize"; // Importa o Sequelize e a classe Model

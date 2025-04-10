@@ -70,4 +70,12 @@
 //  20° => importe a classe Database no arquivo app.js para quando a aplicação carregar já instancie a classe =>
 //      import "./database/index.js";
 //
-//  21°
+//  21° => crie os controllers, são arquivos que recebem e processam as requisições do usuário
+//  22° => crie as rotas, são os caminhos que definem como uma aplicação responde a uma requisição
+//  23° => instale o HTTpie, ele simula o front-and (seguir documentação)
+//  24° => 
+
+
+
+
+
