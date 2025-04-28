@@ -1,18 +1,18 @@
 // PASSO A PASSO PARA CRIAR O BACK-AND
-// 
+//
 //  1° => escolha o gerenciador de pacotes (EX: YARN OU NPM)
 //  2° => inicie o projeto com o gerenciador (yarn init -y)
 //  3° => ajuste suas informções no packge.json
-//  
+//
 //  4° => crie seus primeiro arquivos de organização (antes ficava tudo dentro do server.js, separa-los torna mais organizado)
 //      route.js (configura as rotas)
 //      app.js (configura a aplicação)
 //      server.js (expõe a aplicação)
-//  
+//
 //  5° => instale o express (yarn add express ou npm install express)
 //  6° => importe o express e crie a primeira rota e configurações
 //  7° => instale o nodemon como dependência do projeto, ele reinicia automaticamente o servidor ao salvar (yarn add nodemon -D)
-//      adicione no package.json => 
+//      adicione no package.json =>
 //          "main": "src/server.js"
 //          "scripts":{
 //              "dev": "nodemon'
@@ -57,14 +57,14 @@
 // 		        underscoredAll: true,
 // 	        },
 //      };
-// 
+//
 //  15° => crie as migrations, elas são arquivos onde se coloca instruções para o banco de dados. Ex.: criar novas tabelas, adicionar ou remover novos campos na tabela
 //      yarn sequelize migration:create --name create-users-table
 //
 //  16° => configure os campos que terão na tabela
 //  17° => rode as migrations =>
 //      yarn sequelize db:migrate
-// 
+//
 //  18° => crie os models, é um molde em código para criar e manipular dados no banco
 //  19° => conecte os models com o banco de dados no arquivo index.js da pasta database
 //  20° => importe a classe Database no arquivo app.js para quando a aplicação carregar já instancie a classe =>
@@ -74,8 +74,4 @@
 //  22° => crie os controllers, são arquivos que recebem e processam as requisições do usuário
 //  23° => crie as rotas, são os caminhos que definem como uma aplicação responde a uma requisição
 //  24° => crie os demais arquivos necessários para o projeto
-
-
-
-
 

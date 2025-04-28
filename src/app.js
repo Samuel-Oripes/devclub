@@ -19,7 +19,7 @@ import "./database/index.js";
  */
 class App {
 	/**
-	 * Construtor - inicializa a aplicação Express, configura CORS e 
+	 * Construtor - inicializa a aplicação Express, configura CORS e
 	 * chama os métodos de inicialização
 	 */
 	constructor() {
@@ -47,7 +47,7 @@ class App {
 
 		// Configura o Express para interpretar requisições com corpo JSON
 		this.app.use(express.json());
-		
+
 		// Configura o Express para servir arquivos estáticos de produtos
 		// Mapeia a URL /product-file para a pasta uploads
 		this.app.use(

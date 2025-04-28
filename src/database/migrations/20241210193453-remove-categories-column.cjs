@@ -10,7 +10,8 @@ module.exports = {
 			allowNull: true,
 		});
 	},
-};/** @type {import('sequelize-cli').Migration} */
+};
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
 	/**
 	 * Método 'up' - Executado quando a migração é aplicada

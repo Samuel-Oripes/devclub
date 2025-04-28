@@ -35,7 +35,7 @@ class Database {
 	init() {
 		// Cria a conexão com o banco usando as configurações importadas
 		this.connection = new Sequelize(configDatabase);
-		
+
 		// Inicializa cada modelo passando a conexão do Sequelize
 		models
 			.map((model) => model.init(this.connection))
@@ -52,7 +52,9 @@ class Database {
 	 */
 	mongo() {
 		// Conecta ao MongoDB local na porta padrão 27017, usando o banco 'devburger'
-		this.mongoConnection = mongoose.connect('mongodb://localhost:27017/devburger')
+		this.mongoConnection = mongoose.connect(
+			"mongodb://localhost:27017/devburger",
+		);
 	}
 }
 
